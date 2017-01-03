@@ -118,7 +118,7 @@ func (p *PostProcessor) PostProcess(ui packer.Ui, artifact packer.Artifact) (pac
 		p.config.Cluster)
 
 	if p.config.ResourcePool != "" {
-		ovftool_uri += "/Resources/" + p.config.ResourcePool
+		ovftool_uri += "/Resources/" + url.QueryEscape(p.config.ResourcePool)
 	}
 
 	args, err := p.BuildArgs(source, ovftool_uri)
